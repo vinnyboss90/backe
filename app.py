@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
@@ -13,16 +13,6 @@ app = Flask(__name__)
 users = {}
 CORS(app)
 
-@app.route("/")
-def home_page():
-    return render_template("index.html")
-
-@app.route("/about")
-def about():
-    return render_template("about.html")
-
-if __name__ == "__main__":
-    app.run(debug=True)
 
 app.config['JWT_SECRET_KEY'] = 'super-secret'
 jwt = JWTManager(app)
