@@ -1,13 +1,1 @@
-{
-  "version": 2,
-  "builds": [
-    { "src": "app.py", "use": "@now/python" }
-  ],
-  "routes": [
-    { "handle": "filesystem" },
-    {
-      "src": "/(.*)",
-      "dest": "app.py"
-    }
-  ]
-}
+{ "rewrites": [{ "source": "/(.*)", "destination": "/" }] }
